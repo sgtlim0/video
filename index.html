@@ -1,6 +1,26 @@
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+
+<div>
+    <!-- <a class="yt-simple-endpoint style-scope yt-formatted-string" spellcheck="false" href="https://www.youtube.com/embed//vJTLjQvrnf0?t=36s" dir="auto">00:36</a> -->
+  
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1")'>intense blue</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?start=36&autoplay=1&mute=1&loop=1&rel=0&")'>amazon gray</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=72")'>fiery red</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=108")'>polar white</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=154")'>electric shadow</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=180")'>lava orange</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=217")'>cyber gray</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=253")'>phantom black</button>
+    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?autoplay=1&mute=1&loop=1&rel=0&start=289")'>fluid metal</button>
+
+</div>
+<div>
+    <p>
+
+    </p>
+</div>
 <div class='embed-container'>
-    <iframe src='https://www.youtube.com/embed//vJTLjQvrnf0' frameborder='0' allowfullscreen>
+    <iframe id='my_frame' src='https://www.youtube.com/embed//vJTLjQvrnf0?t=1s&autoplay=1&mute=1&loop=1&rel=0&' frameborder='0' dir=auto allowfullscreen>
 
     </iframe>
 </div>
@@ -8,3 +28,23 @@
 
 
 
+
+
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+function open_in_frame(url) {
+    $('#my_frame').attr('src', url);
+}
+</script>
+<!-- 
+0:00 ~ 0:00.35 : intense blue. 
+0:00.36 ~ 0:01.11 : amazon gray		https://youtu.be/vJTLjQvrnf0?t=36s
+0:01.12 ~ 0:01.47 : fiery red		https://youtu.be/vJTLjQvrnf0?t=1m12s
+0:01.48 ~ 0:02.23 : polar white		https://youtu.be/vJTLjQvrnf0?t=1m48s
+0:02.34 ~ 0:02.59 : electric shadow	https://youtu.be/vJTLjQvrnf0?t=2m34
+0:03.00 ~ 0:03.36 : lava orange		https://youtu.be/vJTLjQvrnf0?t=3m   180
+0:03.37 ~ 0:04.11 : cyber gray		https://youtu.be/vJTLjQvrnf0?t=3m37s    217 
+0:04.12 ~ 0:04:48 : phantom black		https://youtu.be/vJTLjQvrnf0?t=4m12s    252
+0:04.49 ~ 0:05.26 : fluid metal		https://youtu.be/vJTLjQvrnf0?t=4m49s        289    
+-->
