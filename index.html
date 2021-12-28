@@ -1,50 +1,88 @@
-
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
-
+<div id="player"></div>
 <div>
-    <!-- <a class="yt-simple-endpoint style-scope yt-formatted-string" spellcheck="false" href="https://www.youtube.com/embed//vJTLjQvrnf0?t=36s" dir="auto">00:36</a> -->
-  
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1")'>intense blue</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&start=36&autoplay=1&mute=1&loop=1&rel=0&")'>amazon gray</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=72")'>fiery red</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=108")'>polar white</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=154")'>electric shadow</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=180")'>lava orange</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=217")'>cyber gray</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=253")'>phantom black</button>
-    <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=289")'>fluid metal</button>
+<p>
+<button type="button" onclick="playYoutube('0');">intense blue</button>
+<button type="button" onclick="playYoutube('36');">amazon gray</button>
+<button type="button" onclick="playYoutube('72');">fiery red</button>
+<button type="button" onclick="playYoutube('108');">polar white</button>
+</p>
+<p>
+<button type="button" onclick="playYoutube('144');">electric shadow</button>
+<button type="button" onclick="playYoutube('180');">lava orange</button>
+<button type="button" onclick="playYoutube('217');">cyber gray</button>
+<button type="button" onclick="playYoutube('253');">phantom black</button>
+<button type="button" onclick="playYoutube('289');">fluid metal</button>
+</p>
+<!-- <button type="button" onclick="pauseYoutube();">Pause</button>
+<button type="button" onclick="stopYoutube();">Stop</button> -->
+
+<!-- <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1")'>intense blue</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&start=36&autoplay=1&mute=1&loop=1&rel=0&")'>amazon gray</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=72")'>fiery red</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=108")'>polar white</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=154")'>electric shadow</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=180")'>lava orange</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=217")'>cyber gray</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=253")'>phantom black</button>
+<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=289")'>fluid metal</button> -->
+
 
 </div>
-<div>
-    <p>
-
-    </p>
-</div>
-<div class='embed-container'>
-    <iframe id='my_frame' src='https://www.youtube.com/embed//vJTLjQvrnf0?t=1s&autoplay=1&mute=1&loop=1&rel=0&' frameborder='0' dir=auto allowfullscreen>
-
-    </iframe>
-</div>
-
-
-
-
-
-
-<script src="//code.jquery.com/jquery.min.js"></script>
 <script>
-function open_in_frame(url) {
-    $('#my_frame').attr('src', url);
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        videoId: 'vJTLjQvrnf0',
+        playerVars: {   
+        'autoplay': 1,   
+        'rel': 0,
+        'showinfo': 0,
+        'modestbranding': 1,
+        'playsinline': 1,
+        'showinfo': 0,
+        'rel': 0,
+        'controls': 0,
+        'color':'white',
+        'loop': 1,
+        'mute':1,
+        'playlist': 'vJTLjQvrnf0',
+        },
+
+        events: {
+        'onReady': onPlayerReady,
+        // 'onStateChange': onPlayerStateChange
+        }
+    });
 }
+function onPlayerReady(event) {
+    player.playVideo();
+    player.mute();
+}
+var done = false;
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+    //setTimeout(stopVideo, 6000);
+    done = true;
+    console.log(event);
+    }
+}
+
+function stopVideo() {
+    player.stopVideo();
+}
+
+function playYoutube(sec) {
+    console.log(sec);
+    //player.videoId = vid;
+    player.pauseVideo();
+    player.seekTo(sec, true);     // 영상의 시간을 sec초로 이동시킨다.
+    player.playVideo();
+}
+
+
 </script>
-<!-- 
-0:00 ~ 0:00.35 : intense blue. 
-0:00.36 ~ 0:01.11 : amazon gray		https://youtu.be/vJTLjQvrnf0?t=36s
-0:01.12 ~ 0:01.47 : fiery red		https://youtu.be/vJTLjQvrnf0?t=1m12s
-0:01.48 ~ 0:02.23 : polar white		https://youtu.be/vJTLjQvrnf0?t=1m48s
-0:02.34 ~ 0:02.59 : electric shadow	https://youtu.be/vJTLjQvrnf0?t=2m34
-0:03.00 ~ 0:03.36 : lava orange		https://youtu.be/vJTLjQvrnf0?t=3m   180
-0:03.37 ~ 0:04.11 : cyber gray		https://youtu.be/vJTLjQvrnf0?t=3m37s    217 
-0:04.12 ~ 0:04:48 : phantom black		https://youtu.be/vJTLjQvrnf0?t=4m12s    252
-0:04.49 ~ 0:05.26 : fluid metal		https://youtu.be/vJTLjQvrnf0?t=4m49s        289    
--->
