@@ -1,0 +1,50 @@
+
+<script src="https://player.live-video.net/1.5.0/amazon-ivs-player.min.js"></script>
+<body>
+<div>
+  
+    <button type="button" onclick="playYoutube(1);">0:01</button>
+    <button type="button" onclick="playYoutube(21);">0:21</button>
+    <button type="button" onclick="playYoutube(41);">0:41</button>
+    <button type="button" onclick="playYoutube(56);">0:56</button>
+    
+    
+</div>
+<div class="video-container">
+    <video id="video-player" playsinline></video>
+</div>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .video-container {
+        width: 640px;
+        height: 480px;
+        margin: 15px;
+    }
+</style>
+
+</body>
+
+
+<script>
+  if (IVSPlayer.isPlayerSupported) {
+    var player = IVSPlayer.create();
+    var PLAYBACK_URL = "https://vod.tridive.io/output/movie_000/hd.mp4";
+    player.attachHTMLVideoElement(document.getElementById('video-player'));
+    player.load(PLAYBACK_URL);
+    player.setMuted(true);
+    player.setAutoplay(true);
+    player.play();
+  }
+
+  function playYoutube(sec) {
+    console.log(sec);
+    //player.videoId = vid;
+    player.pause();
+    player.seekTo(sec);     // 영상의 시간을 sec초로 이동시킨다.
+    player.play();
+  }
+
+</script>
