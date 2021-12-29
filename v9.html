@@ -1,0 +1,49 @@
+
+
+<body>
+    <div>
+        <p>
+        <button type="button" onclick="playYoutube(1);">intense blue</button>
+        <button type="button" onclick="playYoutube(36);">amazon gray</button>
+        <button type="button" onclick="playYoutube(72);">fiery red</button>
+        <button type="button" onclick="playYoutube(108);">polar white</button>
+        <button type="button" onclick="playYoutube(144);">electric shadow</button>
+        </p>
+        <p>
+        <button type="button" onclick="playYoutube(180);">lava orange</button>
+        <button type="button" onclick="playYoutube(217);">cyber gray</button>
+        <button type="button" onclick="playYoutube(253);">phantom black</button>
+        <button type="button" onclick="playYoutube(289);">fluid metal</button>
+        </p>
+      
+        </div>
+
+    
+    <div class="video-container">
+    <video id="vid" controls autoplay muted loop  width="640">
+    <source src="https://cdn.tridive.io/2021_12_27.mp4" type="video/mp4">
+    </video>
+    </div>
+    <style>
+        body {
+            margin: 0;
+        }
+    
+        .video-container {
+            width: 640px;
+            height: 480px;
+            margin: 15px;
+        }
+    </style>
+    </body>
+    <script>
+    let vid = document.getElementById("vid");
+    
+      function playYoutube(sec) {
+        console.log(sec);
+        vid.pause();
+        vid.currentTime = sec;
+        vid.play();
+      }
+    
+    </script>
