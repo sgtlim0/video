@@ -3,25 +3,25 @@
 <body>
     <div>
         
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/01.mp4',
+        <button  class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/01.mp4',
         './image/01.png');">intense blue</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/02.mp4',
+        <button  class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/02.mp4',
         './image/02.png');">amazon gray</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/03.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/03.mp4',
         './image/03.png');">fiery red</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/04.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/04.mp4',
         './image/04.png');">polar white</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/05.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/05.mp4',
         './image/05.png');">electric shadow</button>
         
         
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/06.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/06.mp4',
         './image/06.png');">lava orange</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/07.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/07.mp4',
         './image/07.png');">cyber gray</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/08.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/08.mp4',
         './image/08.png');">phantom black</button>
-        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/09.mp4',
+        <button class="button" type="button" onclick="playYoutube('https://cdn.null2root.io/input/09.mp4',
         './image/09.png');">fluid metal</button>
         
       
@@ -38,44 +38,40 @@
     </video>
     </div>
     <style>
-        button{
-            background:#1AAB8A;
-            color:#fff;
-            border:none;
-            position:relative;
-            height:40px;
-            font-size:1.2em;
-            padding:0 2em;
-            cursor:pointer;
-            transition:800ms ease all;
-            outline:none;
-          }
-          button:hover{
-            background:#fff;
-            color:#1AAB8A;
-          }
-          button:before,button:after{
-            content:'';
-            position:absolute;
-            top:0;
-            right:0;
-            height:2px;
-            width:0;
-            background: #1AAB8A;
-            transition:400ms ease all;
-          }
-          button:after{
-            right:inherit;
-            top:inherit;
-            left:0;
-            bottom:0;
-          }
-          button:hover:before,button:hover:after{
-            width:100%;
-            transition:800ms ease all;
-          }
-          
-          
+      
+      .button {
+        position: relative;
+        background-color: #4CAF50;
+        border: none;
+        font-size: 24px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      
+      .button:after {
+        content: "";
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+      }
+      
+      .button:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
 
         body {
         margin: 0;
