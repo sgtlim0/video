@@ -37,8 +37,27 @@
         
     </video>
     </div>
+
+    <div class="preloader">
+      <img src="https://cdn.null2root.io/input/image/01.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/02.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/03.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/04.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/05.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/06.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/07.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/08.png" width="1" height="1" />
+      <img src="https://cdn.null2root.io/input/image/09.png" width="1" height="1" />
+    </div>
+
     <style>
-      
+      .preloader{
+        position: absolute;
+		    left: -9999px;
+		    top:  -9999px;
+        visibility: hidden;
+		    display: none;
+      }
       
       .button {
         
@@ -91,26 +110,8 @@
     </body>
     <script>
 
-      let images = [];
 
-      function preload() {
-        for(let i = 0; i < preload.arguments.lenght; i++) {
-          images[i] = new Image();
-          images[i].src = preload.arguments.src;
-        }
-      }
-  
-      preload(
-        "https://cdn.null2root.io/input/image/01.png",
-        "https://cdn.null2root.io/input/image/02.png",
-        "https://cdn.null2root.io/input/image/03.png",
-        "https://cdn.null2root.io/input/image/04.png",
-        "https://cdn.null2root.io/input/image/05.png",
-        "https://cdn.null2root.io/input/image/06.png",
-        "https://cdn.null2root.io/input/image/07.png",
-        "https://cdn.null2root.io/input/image/08.png",
-        "https://cdn.null2root.io/input/image/09.png"
-      )
+      
 
     let vid = document.getElementById("vid");
 
@@ -120,6 +121,7 @@
       //vid.pause();
       if (vid.src === src) return;  //같은 src라면 리턴;
 
+      
       vid.removeAttribute('src'); // src 프로퍼티를 제거
       vid.src = src; // 다른 미디어로 소스 변경
       vid.removeAttribute('poster');
