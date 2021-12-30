@@ -30,7 +30,7 @@
 
     
     <div class="video-container" >
-    <video id="vid"  preload autoplay muted loop playsinline 
+    <video id="vid"  controls preload  muted loop playsinline 
     poster="https://cdn.null2root.io/input/image/01.png">
         <source src="https://cdn.null2root.io/input/01.mp4" type="video/mp4">
         <img src = "https://cdn.null2root.io/input/image/01.png">
@@ -133,7 +133,9 @@
       vid.play();
     }
 
+    setTimeout(function(){
+      playYoutube('https://cdn.null2root.io/input/01.mp4','https://cdn.null2root.io/input/image/01.png');
 
+    }, 1000);
 
-    
     </script>
