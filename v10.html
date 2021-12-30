@@ -95,10 +95,9 @@
 
     
       function playYoutube(src,splash) {
-        console.log(src);
-        
-        //console.(vid.source)
-        //vid.pause();
+        //console.log(src);
+        //console.(splash)
+        vid.pause();
         vid.removeAttribute('src'); // src 프로퍼티를 제거
         vid.src = src; // 다른 미디어로 소스 변경
         vid.removeAttribute('poster');
