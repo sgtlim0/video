@@ -1,0 +1,126 @@
+
+
+<body>
+    <div>
+        
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/01.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/21.jpg');">intense blue</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/02.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/1.jpg');">amazon gray</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/03.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/11.jpg');">fiery red</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/04.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/31.jpg');">polar white</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/05.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/41.jpg');">electric shadow</button>
+        
+        
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/06.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/15.jpg');">lava orange</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/07.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/25.jpg');">cyber gray</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/08.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/35.jpg');">phantom black</button>
+        <button type="button" onclick="playYoutube('https://cdn.null2root.io/input/09.mp4',
+        'https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/45.jpg');">fluid metal</button>
+        
+      
+        </div>
+        
+
+    
+    <div class="video-container" >
+    <video id="vid"  controls autoplay muted loop playsinline 
+    poster="https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/20.jpg"
+  >
+        <source src="https://cdn.null2root.io/input/1._intense_blue.mp4" type="video/mp4">
+        <!-- <source src="https://tridive.hyundai-autoever.com/rendered/AOS5K2G1BSS023_TKS_NNB/0/0000/20.jpg" type="image/jpeg"> -->
+    </video>
+    </div>
+    <style>
+        button{
+            background:#1AAB8A;
+            color:#fff;
+            border:none;
+            position:relative;
+            height:20px;
+            font-size:1.1em;
+            padding:0 2em;
+            cursor:pointer;
+            transition:800ms ease all;
+            outline:none;
+          }
+          button:hover{
+            background:#fff;
+            color:#1AAB8A;
+          }
+          button:before,button:after{
+            content:'';
+            position:absolute;
+            top:0;
+            right:0;
+            height:2px;
+            width:0;
+            background: #1AAB8A;
+            transition:400ms ease all;
+          }
+          button:after{
+            right:inherit;
+            top:inherit;
+            left:0;
+            bottom:0;
+          }
+          button:hover:before,button:hover:after{
+            width:100%;
+            transition:800ms ease all;
+          }
+          
+          
+
+        body {
+        margin: 0;
+        background: #eee;
+        }
+
+    
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율인 경우 */
+            /* padding-bottom값은 4:3 비율인 경우 75%로 설정합니다 */
+            padding-top: 25px;
+            height: 0;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    </body>
+    <script>
+    let vid = document.getElementById("vid");
+
+    
+
+    
+      function playYoutube(src,splash) {
+        console.log(src);
+        
+        //console.(vid.source)
+        //vid.pause();
+        vid.removeAttribute('src'); // src 프로퍼티를 제거
+        vid.src = src; // 다른 미디어로 소스 변경
+        vid.removeAttribute('poster');
+        vid.poster = splash; // 스플래시 화면 변경
+
+        vid.load(); // 새로운 정보를 다시 로드
+
+        //vid.currentTime = sec;
+        vid.play();
+      }
+    
+    </script>
