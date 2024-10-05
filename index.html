@@ -1,90 +1,140 @@
-
-<div>
-<p>
-<button type="button" onclick="playYoutube('0');">intense blue</button>
-<button type="button" onclick="playYoutube('36');">amazon gray</button>
-<button type="button" onclick="playYoutube('72');">fiery red</button>
-<button type="button" onclick="playYoutube('108');">polar white</button>
-</p>
-<p>
-<button type="button" onclick="playYoutube('144');">electric shadow</button>
-<button type="button" onclick="playYoutube('180');">lava orange</button>
-<button type="button" onclick="playYoutube('217');">cyber gray</button>
-<button type="button" onclick="playYoutube('253');">phantom black</button>
-<button type="button" onclick="playYoutube('289');">fluid metal</button>
-</p>
-<!-- <button type="button" onclick="pauseYoutube();">Pause</button>
-<button type="button" onclick="stopYoutube();">Stop</button> -->
-
-<!-- <button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1")'>intense blue</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&start=36&autoplay=1&mute=1&loop=1&rel=0&")'>amazon gray</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=72")'>fiery red</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=108")'>polar white</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=154")'>electric shadow</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=180")'>lava orange</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=217")'>cyber gray</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=253")'>phantom black</button>
-<button onclick='open_in_frame("https://www.youtube.com/embed//vJTLjQvrnf0?playlist=vJTLjQvrnf0&autoplay=1&mute=1&loop=1&rel=0&start=289")'>fluid metal</button> -->
-
-
-</div>
-
-<div id="player"></div>
-<script>
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        videoId: 'vJTLjQvrnf0',
-        playerVars: {   
-        'autoplay': 1,   
-        'rel': 0,
-        'showinfo': 0,
-        'modestbranding': 1,
-        'playsinline': 1,
-        'showinfo': 0,
-        'rel': 0,
-        'controls': 0,
-        'color':'white',
-        'loop': 1,
-        'mute':1,
-        'playlist': 'vJTLjQvrnf0',
-        },
-
-        events: {
-        'onReady': onPlayerReady,
-        // 'onStateChange': onPlayerStateChange
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1부터 100까지 숫자 체크 게임</title>
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
-    });
-}
-function onPlayerReady(event) {
-    player.playVideo();
-    player.mute();
-}
-var done = false;
+        #gameBoard {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .tile {
+            aspect-ratio: 1;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tile.checked {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #message {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #restartButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #restartButton:hover {
+            background-color: #1E88E5;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">1부터 100까지 순서대로 클릭하세요!</div>
+    <div id="gameBoard"></div>
+    <button id="restartButton">재시작</button>
 
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-    //setTimeout(stopVideo, 6000);
-    done = true;
-    console.log(event);
-    }
-}
+    <script>
+        const gameBoard = document.getElementById('gameBoard');
+        const messageElement = document.getElementById('message');
+        const restartButton = document.getElementById('restartButton');
+        let currentNumber = 1;
+        let startTime;
+        let timerInterval;
 
-function stopVideo() {
-    player.stopVideo();
-}
+        function createGameBoard() {
+            gameBoard.innerHTML = '';
+            const numbers = Array.from({length: 100}, (_, i) => i + 1);
+            shuffleArray(numbers);
 
-function playYoutube(sec) {
-    console.log(sec);
-    //player.videoId = vid;
-    player.pauseVideo();
-    player.seekTo(sec, true);     // 영상의 시간을 sec초로 이동시킨다.
-    player.playVideo();
-}
+            numbers.forEach(number => {
+                const tileElement = document.createElement('div');
+                tileElement.classList.add('tile');
+                tileElement.textContent = number;
+                tileElement.addEventListener('click', () => checkNumber(tileElement, number));
+                gameBoard.appendChild(tileElement);
+            });
+        }
 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
 
-</script>
+        function checkNumber(tileElement, number) {
+            if (number === currentNumber) {
+                tileElement.classList.add('checked');
+                currentNumber++;
+                if (currentNumber > 100) {
+                    endGame();
+                }
+            }
+        }
+
+        function startGame() {
+            currentNumber = 1;
+            messageElement.textContent = '1부터 100까지 순서대로 클릭하세요!';
+            createGameBoard();
+            startTime = new Date();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            const currentTime = new Date();
+            const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+            const minutes = Math.floor(elapsedTime / 60);
+            const seconds = elapsedTime % 60;
+            messageElement.textContent = `경과 시간: ${minutes}분 ${seconds}초 - 다음 숫자: ${currentNumber}`;
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            const endTime = new Date();
+            const totalTime = Math.floor((endTime - startTime) / 1000);
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+            messageElement.textContent = `축하합니다! 게임 완료! 소요 시간: ${minutes}분 ${seconds}초`;
+        }
+
+        restartButton.addEventListener('click', startGame);
+
+        startGame();
+    </script>
+</body>
+</html>
